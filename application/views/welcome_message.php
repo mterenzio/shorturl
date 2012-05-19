@@ -67,8 +67,7 @@
 <body>
 
 <div id="container">
-	<h1><?php echo get_cfg_var('aws.access_key');
-echo get_cfg_var('aws.secret_key');?></h1>
+	<h1></h1>
 
 	<div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
