@@ -67,11 +67,7 @@
 <body>
 
 <div id="container">
-	<h1><?php $this->load->library('aws');
-    $sqs = new AmazonSQS();
-    $response = $sqs->list_queues();
-    var_dump($response->isOK()); ?>
-</h1>
+	<h1></h1>
 
 	<div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
