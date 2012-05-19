@@ -67,7 +67,7 @@
 <body>
 
 <div id="container">
-	<h1><?php $this->load->library('awslib');
+	<h1><?php $this->load->library('aws');
     $sqs = new AmazonSQS();
     $response = $sqs->list_queues();
     var_dump($response->isOK()); ?>
