@@ -68,6 +68,7 @@
 
 <div id="container">
 	<h1><?php
+	$this->load->library('aws');
 // Instantiate the class
 $dynamodb = new AmazonDynamoDB();
 
@@ -80,6 +81,7 @@ $get_response = $dynamodb->get_item(array(
 
 // status code 200 indicates success
 print_r($get_response);
+
 	?></h1>
 
 	<div id="body">
