@@ -65,7 +65,7 @@ CFCredentials::set(array(
 		//
 		// Valid values are: `apc`, `xcache`, or a file system path such as `./cache` or
 		// `/tmp/cache/`.
-		'default_cache_config' => '/applications/libraries/aws-sdk/cache',
+		'default_cache_config' => '/application/libraries/aws-sdk/cache',
 
 		// Determines which Cerificate Authority file to use.
 		//
