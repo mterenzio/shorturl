@@ -65,7 +65,7 @@ CFCredentials::set(array(
 		//
 		// Valid values are: `apc`, `xcache`, or a file system path such as `./cache` or
 		// `/tmp/cache/`.
-		'default_cache_config' => './cache',
+		'default_cache_config' => '/var/www/html/cache',
 
 		// Determines which Cerificate Authority file to use.
 		//
