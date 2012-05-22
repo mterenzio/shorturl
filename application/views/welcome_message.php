@@ -84,7 +84,7 @@ $response = $dynamodb->get_item(array(
 // Check for success...
 if ($response->isOK())
 {
-    var_dump((string) $response->body->Item->count->{AmazonDynamoDB::TYPE_STRING});
+    var_dump((string) $response->body->Item->count->{AmazonDynamoDB::TYPE_NUMBER});
 	print_r($response);
 }
 else
