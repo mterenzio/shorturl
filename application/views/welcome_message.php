@@ -72,7 +72,7 @@
 // Instantiate the class
 $dynamodb = new AmazonDynamoDB();
 
-$get_response = $dynamodb->get_item(array(
+$response = $dynamodb->get_item(array(
     'TableName' => 'counters',
     'Key' => array(
         'HashKeyElement' => array( AmazonDynamoDB::TYPE_NUMBER => '1' )
