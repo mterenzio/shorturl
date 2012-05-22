@@ -76,11 +76,19 @@ $get_response = $dynamodb->get_item(array(
     'TableName' => 'counters',
     'Key' => array(
         'HashKeyElement' => array( AmazonDynamoDB::TYPE_NUMBER => '1' )
-    )
+    ),
+	'ConsistentRead' => 'true'
 ));
 
-// status code 200 indicates success
-print_r($get_response);
+// Check for success...
+if ($response->isOK())
+{
+    var_dump((string) $response->body->Item->count->{AmazonDynamoDB::TYPE_STRING});
+}
+else
+{
+    print_r($response);
+}
 
 	?></h1>
 
