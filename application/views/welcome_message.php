@@ -77,6 +77,7 @@ $response = $dynamodb->get_item(array(
     'Key' => array(
         'HashKeyElement' => array( AmazonDynamoDB::TYPE_NUMBER => '1' )
     ),
+	'AttributesToGet' => array('count'),
 	'ConsistentRead' => 'true'
 ));
 
