@@ -1,0 +1,80 @@
+body {font-family : verdana, arial, sans-serif; font-size:100%; background:#efefef; margin-top: 0px; }
+
+#container {width: 80%; text-align:left; margin: 0 auto; background:#fff; border-width: 1px; border-style:solid; border-left-color: #cfcfcf; border-right-color:#cfcfcf; border-bottom-color: #fff; border-top-color:#fff; padding: 0px 20px 0px 20px;}
+#header {clear:both;text-align: center;width: 95%;padding: 0px;margin-bottom: 40px;}
+#main {margin: 0 auto;}
+#footer {clear:both;text-align: center;width:100%;padding: 40px;font-weight:bold; height: 200px;}
+#footer a:visited {color: #D67401;}
+#footer a:link {color: #D67401;}
+.center {text-align: center;}
+h1 {color: #D67401; margin-top: 0px; margin-bottom: 5px;font-size:400%;}
+form {padding: 25px ;border: 1px solid #D3E1FE; background:#F0F5FF;}
+
+input.text {border: 1px solid #879A45; padding: 5px; font-size: 100%; font-weight: bold; width: 80%;}
+input.submit {border: 1px solid #879A45; background-color: #fff; padding: 5px; font-size: 100%; font-weight: bold;}
+img.logo {float: left; border: 0;}        
+a:link {text-decoration: none; }
+a:active {text-decoration: underline;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: underline; color: #235900;}
+
+#facebox {
+
+	/* overlay is hidden before loading */
+	display:none;
+	/* standard decorations */
+
+	width:320px;	
+	border:3px solid #000;
+    padding: 10px;
+	/* for modern browsers use semi-transparent color on the border. nice! */
+	border:3px solid rgba(82, 82, 82, 0.698);
+
+	/* hot CSS3 features for mozilla and webkit-based browsers (rounded borders) */
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+}
+#facebox div { 
+    color: #fff;
+    font-family:"lucida grande",tahoma,verdana,arial,sans-serif 
+}
+#facebox h2 {
+	color:#fff;
+	background-color:#6D84B4;
+	padding:5px 10px;
+	border:1px solid #3B5998;
+	font-size:20px;
+}
+
+
+
+/* the overlayed element */
+.simple_overlay {
+	
+	/* must be initially hidden */
+	display:none;
+	
+	/* place overlay on top of other elements */
+	z-index:10000;
+	/* styling */
+	background-color:#333;
+	
+	width:675px;	
+	min-height:200px;
+	border:1px solid #666;
+	
+	/* CSS3 styling for latest browsers */
+	-moz-box-shadow:0 0 90px 5px #000;
+	-webkit-box-shadow: 0 0 90px #000;	
+}
+
+/* close button positioned on upper right corner */
+.simple_overlay .close {
+	background-image:url(../img/close.png);
+	position:absolute;
+	right:-15px;
+	top:-15px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+}
