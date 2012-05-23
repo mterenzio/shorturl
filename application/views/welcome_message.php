@@ -91,7 +91,7 @@ else
 {
     print_r($response);
 }
-
+$next = $current_count++;
 $update_response = $dynamodb->update_item(array(
     'TableName' => get_cfg_var('aws.param3'), 
         'Key' => array(
@@ -106,7 +106,7 @@ $update_response = $dynamodb->update_item(array(
             'count' => array(
                 'Action' => AmazonDynamoDB::ACTION_PUT,
                 'Value' => array(
-                    AmazonDynamoDB::TYPE_STRING => (string) "$current_count++"
+                    AmazonDynamoDB::TYPE_STRING => (string) $next
                 )
             )
         )
