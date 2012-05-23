@@ -1,29 +1,23 @@
 <?php
 
 class ShortUrl_Model extends CI_Model {
- 
-    private $properties;
     
     public function __construct() {
 		$this->load->library('aws');
 		$this->dynamodb = new AmazonDynamoDB();         
     } 
     
-    public function createShortUrl() {
-        if ($this->properties['url'] != null) {
-                $nextid = $this->generateNewID();
-                $guidconvert = base_convert($nextid, 10, 36);
-                $shorturl = "http://".SITE_DOMAIN.'/'.$guidconvert;
-                $fields = array('id' => $nextid, 'shorturl'=>$shorturl, 'longurl'=>$this->properties['url']);
-                $put = $this->sdb->put_attributes(SDB_DOMAIN, $paddednextid, $fields);
-				if ($put->isOK()) {
-                	return $shorturl;  
-                } else {
-                	return false;
-				}
-        } else {
-            return false; 
-        }
+    public function createShortUrl($longurl) {
+		$nextid = $this->generateNewID();
+		$guidconvert = base_convert($nextid, 10, 36);
+		$shorturl = "http://".get_cfg_var('aws.param1').'/'.$guidconvert;
+		$fields = array('id' => $nextid, 'shorturl'=>$shorturl, 'longurl'=>$this->properties['url']);
+		$put = $this->sdb->put_attributes(SDB_DOMAIN, $paddednextid, $fields);
+		if ($put->isOK()) {
+			return $shorturl;  
+		} else {
+			return false;
+		}
     }
 
     public function generateNewID() {      
