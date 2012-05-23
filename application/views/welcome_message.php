@@ -97,7 +97,7 @@ $update_response = $dynamodb->update_item(array(
     'TableName' => get_cfg_var('aws.param3'), 
         'Key' => array(
             'HashKeyElement' => array(
-                AmazonDynamoDB::TYPE_NUMBER => 1 
+                AmazonDynamoDB::TYPE_NUMBER => "1" 
             )
         ),
 		'Expected' => array(
@@ -107,7 +107,7 @@ $update_response = $dynamodb->update_item(array(
             'count' => array(
                 'Action' => AmazonDynamoDB::ACTION_PUT,
                 'Value' => array(
-                    AmazonDynamoDB::TYPE_NUMBER => "$next"
+                    AmazonDynamoDB::TYPE_STRING => "$next"
                 )
             )
         )
