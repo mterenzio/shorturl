@@ -131,7 +131,7 @@ $longurl = "longy";
 			            'HashKeyElement' => array(
 			                AmazonDynamoDB::TYPE_STRING => "$shorturl"
 			            )
-			        ),
+			        ),			
 			        'AttributeUpdates' => array(
 			            'longurl' => array(
 			                'Action' => AmazonDynamoDB::ACTION_PUT,
