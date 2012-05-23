@@ -91,7 +91,7 @@ else
 {
     print_r($response);
 }
-$next = $current_count + 1;
+$next = $current_count++;
 echo $next;
 $update_response = $dynamodb->update_item(array(
     'TableName' => get_cfg_var('aws.param3'), 
