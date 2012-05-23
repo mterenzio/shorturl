@@ -93,7 +93,7 @@ else
 }
 
 $update_response = $dynamodb->update_item(array(
-    'TableName' => COUNTER_TABLE, 
+    'TableName' => get_cfg_var('aws.param3'), 
         'Key' => array(
             'HashKeyElement' => array(
                 AmazonDynamoDB::TYPE_NUMBER => 1 
