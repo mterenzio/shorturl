@@ -92,6 +92,27 @@ else
     print_r($response);
 }
 
+$update_response = $dynamodb->update_item(array(
+    'TableName' => COUNTER_TABLE, 
+        'Key' => array(
+            'HashKeyElement' => array(
+                AmazonDynamoDB::TYPE_NUMBER => 1 
+            )
+        ),
+		'Expected' => array(
+		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => $current_count ) )
+		),
+        'AttributeUpdates' => array(
+            'count' => array(
+                'Action' => AmazonDynamoDB::ACTION_PUT,
+                'Value' => array(
+                    AmazonDynamoDB::TYPE_NUMBER => array($current_count++)
+                )
+            )
+        )
+));
+
+
 	?></h1>
 
 	<div id="body">
