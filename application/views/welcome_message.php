@@ -125,7 +125,7 @@ else
 
 $shorturl = "shorty";
 $longurl = "longy";
-			$put = $this->dynamodb->put_item(array(
+			$put = dynamodb->put_item(array(
 			    'TableName' => get_cfg_var('aws.param2'), 
 			        'Key' => array(
 			            'HashKeyElement' => array(
