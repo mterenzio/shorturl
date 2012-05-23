@@ -115,7 +115,7 @@ $update_response = $dynamodb->update_item(array(
 if ($update_response->isOK())
 {
     //$current_count = (string) $response->body->Item->count->{AmazonDynamoDB::TYPE_NUMBER};
-	echo "shoulda;
+	echo "shoulda";
 }
 else
 {
