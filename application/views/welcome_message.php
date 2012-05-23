@@ -134,7 +134,7 @@ $longurl = "longy";
 			        ),
 					'Expected' => array(
 						'shorturl' => array(
-						            'Value' => array("Exists" => "false" )
+						            "Exists" => "false"
 					)),										
 			        'AttributeUpdates' => array(
 			            'longurl' => array(
