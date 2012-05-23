@@ -134,7 +134,7 @@ $longurl = "longy";
 			        ),
 					'Expected' => array(
 						'shorturl' => array(
-						            'Value' => array( AmazonDynamoDB::TYPE_STRING => "$shorturl", "Exists" => "false" )
+						            'Value' => array("Exists" => "false" )
 					)),										
 			        'AttributeUpdates' => array(
 			            'longurl' => array(
