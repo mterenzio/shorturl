@@ -125,13 +125,17 @@ else
 
 $shorturl = "shorty";
 $longurl = "longy";
-			$put = $dynamodb->put_item(array(
+			$put = $dynamodb->update_item(array(
 			    'TableName' => get_cfg_var('aws.param2'), 
 			        'Key' => array(
 			            'HashKeyElement' => array(
 			                AmazonDynamoDB::TYPE_STRING => "$shorturl"
 			            )
-			        ),			
+			        ),
+					'Expected' => array(
+						'shorturl' => array(
+						            'Value' => array( AmazonDynamoDB::TYPE_STRING => "$shorturl", "Exists" => "false" )
+					)),										
 			        'AttributeUpdates' => array(
 			            'longurl' => array(
 			                'Action' => AmazonDynamoDB::ACTION_PUT,
