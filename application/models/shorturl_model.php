@@ -8,54 +8,119 @@ class ShortUrl_Model extends CI_Model {
     } 
     
     public function createShortUrl($longurl) {
-		$nextid = $this->generateNewID();
-		$guidconvert = base_convert($nextid, 10, 36);
-		$shorturl = "http://".get_cfg_var('aws.param1').'/'.$guidconvert;
-		$fields = array('id' => $nextid, 'shorturl'=>$shorturl, 'longurl'=>$this->properties['url']);
-		$put = $this->sdb->put_attributes(SDB_DOMAIN, $paddednextid, $fields);
-		if ($put->isOK()) {
-			return $shorturl;  
+		if ($nextid = $this->generateNewID()) {
+			$guidconvert = base_convert($nextid, 10, 36);
+			$shorturl = "http://".get_cfg_var('aws.param1').'/'.$guidconvert;
+			$put = $this->dynamodb->put_item(array(
+			    'TableName' => get_cfg_var('aws.param2'), 
+			        'Key' => array(
+			            'HashKeyElement' => array(
+			                AmazonDynamoDB::TYPE_STRING => "$shorturl"
+			            )
+			        ),
+					'Expected' => array(
+						'shorturl' => array(
+						            'Value' => array( AmazonDynamoDB::TYPE_STRING => "$shorturl", "Exists":"false" )
+					),
+			        'AttributeUpdates' => array(
+			            'longurl' => array(
+			                'Action' => AmazonDynamoDB::ACTION_PUT,
+			                'Value' => array(
+			                    AmazonDynamoDB::TYPE_STRING => "$longurl"
+			                )
+			            )
+			        )
+			))
+			if ($put->isOK()) {
+				return $shorturl;  
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
     }
 
-    public function generateNewID() {      
-        $lastid = $this->getLastID();
-        $nextid = $lastid + 1; 
-        return $nextid;
+    private function generateNewID() {      
+        $current_count = $this->getLastID();
+		$next = $current_count + 1;
+		$update_response = $this->dynamodb->update_item(array(
+		    'TableName' => get_cfg_var('aws.param3'), 
+		        'Key' => array(
+		            'HashKeyElement' => array(
+		                AmazonDynamoDB::TYPE_NUMBER => '1'
+		            )
+		        ),
+				'Expected' => array(
+				        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => "$current_count" ) )
+				),
+		        'AttributeUpdates' => array(
+		            'count' => array(
+		                'Action' => AmazonDynamoDB::ACTION_PUT,
+		                'Value' => array(
+		                    AmazonDynamoDB::TYPE_NUMBER => "$next"
+		                )
+		            )
+		        )
+		));
+		if ($update_response->isOK())
+		{
+			return $next;
+		}
+		else
+		{
+			return false;
+		}							
     }
     
-    public function shortExists($shorturl) {      
+   /* public function shortExists($shorturl) {      
         $shortexists = $this->convertSelectToArray($this->getLongUrl($shorturl));
         if (isset($shortexists[0]['shorturl'])) {
             return true;
         } else {
             return false;
         }        
-    }
+    }*/
 
     public function getLongUrl($shorturl) {      
-        $select = $this->sdb->select("select * from ".SDB_DOMAIN." where shorturl = '$shorturl'");
-        $results = $this->convertSelectToArray($select);
-        if (isset($results[0]['longurl'])) {
-            return $results[0]['longurl'];
-        } else {
-            return false;
-        }        
+		$response = $dynamodb->get_item(array(
+		    'TableName' => get_cfg_var('aws.param2'),
+		    'Key' => array(
+		        'HashKeyElement' => array( AmazonDynamoDB::TYPE_STRING => "$shorturl" )
+		    ),
+			'AttributesToGet' => array('longurl'),
+			'ConsistentRead' => 'true'
+		));
+		if ($response->isOK())
+		{
+		    return (string) $response->body->Item->longurl->{AmazonDynamoDB::TYPE_STRING};
+		}
+		else
+		{
+		    return false;
+		}    
     }
 
-    public function getLastID() {      
-        $select = $this->sdb->select("select * from ".SDB_DOMAIN." where id is not null order by id desc limit 1");
-        $results = $this->convertSelectToArray($select);
-        if (isset($results[0]['id'])) {
-            return $results[0]['id'];
-        } else {
-            return false;
-        }        
+    private function getLastID() {      
+		$response = $this->dynamodb->get_item(array(
+		    'TableName' => 'counters',
+		    'Key' => array(
+		        'HashKeyElement' => array( AmazonDynamoDB::TYPE_NUMBER => '1' )
+		    ),
+			'AttributesToGet' => array('count'),
+			'ConsistentRead' => 'true'
+		));
+		if ($response->isOK())
+		{
+		    return (string) $response->body->Item->count->{AmazonDynamoDB::TYPE_NUMBER};
+		}
+		else
+		{
+		    return false;
+		}     
     }
     
-    function __set($property_name, $val) {
+   /* function __set($property_name, $val) {
         $this->properties[$property_name] = $val;
     }
    
@@ -65,7 +130,7 @@ class ShortUrl_Model extends CI_Model {
         } else {
             return(NULL);
         }
-    } 
+    } */
  
 }
 

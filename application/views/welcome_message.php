@@ -123,6 +123,33 @@ else
     print_r($update_response);
 }
 
+$shorturl = "shorty";
+$longurl = "longy";
+			$put = $this->dynamodb->put_item(array(
+			    'TableName' => get_cfg_var('aws.param2'), 
+			        'Key' => array(
+			            'HashKeyElement' => array(
+			                AmazonDynamoDB::TYPE_STRING => "$shorturl"
+			            )
+			        ),
+					'Expected' => array(
+						'shorturl' => array(
+						            'Value' => array( AmazonDynamoDB::TYPE_STRING => "$shorturl", "Exists":"false" )
+					),
+			        'AttributeUpdates' => array(
+			            'longurl' => array(
+			                'Action' => AmazonDynamoDB::ACTION_PUT,
+			                'Value' => array(
+			                    AmazonDynamoDB::TYPE_STRING => "$longurl"
+			                )
+			            )
+			        )
+			))
+			if ($put->isOK()) {
+				echo "put";  
+			} else {
+				print_r($update_response);
+			}
 
 	?></h1>
 
