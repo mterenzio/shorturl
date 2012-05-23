@@ -84,24 +84,24 @@ $response = $dynamodb->get_item(array(
 // Check for success...
 if ($response->isOK())
 {
-    $current_count = $response->body->Item->count->{AmazonDynamoDB::TYPE_NUMBER};
+    $current_count = (string) $response->body->Item->count->{AmazonDynamoDB::TYPE_NUMBER};
 	echo $current_count;
 }
 else
 {
     print_r($response);
 }
-$next = $current_count++;
+$next = $current_count + 1;
 echo $next;
 $update_response = $dynamodb->update_item(array(
     'TableName' => get_cfg_var('aws.param3'), 
         'Key' => array(
             'HashKeyElement' => array(
-                AmazonDynamoDB::TYPE_NUMBER => "1" 
+                AmazonDynamoDB::TYPE_NUMBER => '1'
             )
         ),
 		'Expected' => array(
-		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => "$current_count" ) )
+		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => "$current_count ) )
 		),
         'AttributeUpdates' => array(
             'count' => array(
