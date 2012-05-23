@@ -106,7 +106,7 @@ $update_response = $dynamodb->update_item(array(
             'count' => array(
                 'Action' => AmazonDynamoDB::ACTION_PUT,
                 'Value' => array(
-                    AmazonDynamoDB::TYPE_STRING => $current_count++
+                    AmazonDynamoDB::TYPE_STRING => (string) $current_count++
                 )
             )
         )
