@@ -11,7 +11,7 @@ class ShortUrl_Model extends CI_Model {
 		if ($nextid = $this->generateNewID()) {
 			$guidconvert = base_convert($nextid, 10, 36);
 			$shorturl = "http://".get_cfg_var('aws.param1').'/'.$guidconvert;
-			$put = $this->dynamodb->put_item(array(
+			$put = $this->dynamodb->update_item(array(
 			    'TableName' => get_cfg_var('aws.param2'), 
 			        'Key' => array(
 			            'HashKeyElement' => array(
@@ -20,8 +20,8 @@ class ShortUrl_Model extends CI_Model {
 			        ),
 					'Expected' => array(
 						'shorturl' => array(
-						            'Value' => array( AmazonDynamoDB::TYPE_STRING => "$shorturl", "Exists":"false" )
-					)),
+						            "Exists" => "false"
+					)),										
 			        'AttributeUpdates' => array(
 			            'longurl' => array(
 			                'Action' => AmazonDynamoDB::ACTION_PUT,
@@ -36,9 +36,6 @@ class ShortUrl_Model extends CI_Model {
 			} else {
 				return false;
 			}
-		} else {
-			return false;
-		}
     }
 
     private function generateNewID() {      
