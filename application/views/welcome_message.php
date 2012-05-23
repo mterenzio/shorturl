@@ -101,7 +101,7 @@ $update_response = $dynamodb->update_item(array(
             )
         ),
 		'Expected' => array(
-		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => $current_count ) )
+		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => "$current_count" ) )
 		),
         'AttributeUpdates' => array(
             'count' => array(
