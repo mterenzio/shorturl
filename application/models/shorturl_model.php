@@ -30,7 +30,7 @@ class ShortUrl_Model extends CI_Model {
 			                )
 			            )
 			        )
-			))
+			));
 			if ($put->isOK()) {
 				return $shorturl;  
 			} else {
