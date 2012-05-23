@@ -91,7 +91,8 @@ else
 {
     print_r($response);
 }
-$next = $current_count++;
+$next = $current_count + 1;
+echo $next;
 $update_response = $dynamodb->update_item(array(
     'TableName' => get_cfg_var('aws.param3'), 
         'Key' => array(
@@ -100,13 +101,13 @@ $update_response = $dynamodb->update_item(array(
             )
         ),
 		'Expected' => array(
-		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => $current_count ) )
+		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => '$current_count' ) )
 		),
         'AttributeUpdates' => array(
             'count' => array(
                 'Action' => AmazonDynamoDB::ACTION_PUT,
                 'Value' => array(
-                    AmazonDynamoDB::TYPE_STRING => (string) $next
+                    AmazonDynamoDB::TYPE_STRING => (string) '$next'
                 )
             )
         )
