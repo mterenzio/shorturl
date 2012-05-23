@@ -148,7 +148,7 @@ $longurl = "longy";
 			if ($put->isOK()) {
 				echo "put";  
 			} else {
-				print_r($update_response);
+				print_r($put);
 			}
 
 	?></h1>
