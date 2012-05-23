@@ -84,7 +84,7 @@ $response = $dynamodb->get_item(array(
 // Check for success...
 if ($response->isOK())
 {
-    $current_count = (string) $response->body->Item->count->{AmazonDynamoDB::TYPE_NUMBER};
+    $current_count = $response->body->Item->count->{AmazonDynamoDB::TYPE_NUMBER};
 	echo $current_count;
 }
 else
@@ -101,7 +101,7 @@ $update_response = $dynamodb->update_item(array(
             )
         ),
 		'Expected' => array(
-		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => $current_count ) )
+		        'count' => array( 'Value' => array (AmazonDynamoDB::TYPE_NUMBER => "$current_count ) )
 		),
         'AttributeUpdates' => array(
             'count' => array(
