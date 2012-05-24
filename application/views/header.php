@@ -2,9 +2,7 @@
 <html>
 <head>
     <title>
-    <?php
-    echo $title;
-    ?>
+ ShortURL Maker
 	</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="robots" content="index,follow"/>

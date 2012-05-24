@@ -7,7 +7,7 @@ class Create extends CI_Controller {
 		$this->load->helper(array('form', 'url'));	
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="formerror">', '</div>');
-		$this->form_validation->set_rules('longurl', 'Longurl', 'trim|required|callback__valid_url');
+		$this->form_validation->set_rules('longurl', 'Longurl', 'trim|required|callback__valid_longurl');
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->vars($data);
 			$this->load->view('welcome_message', $data);
@@ -36,6 +36,7 @@ class Create extends CI_Controller {
 			} else {
 		    	echo 'error creating short url. . .try again';
 			}
+		}
 	}
 	
 	function _valid_longurl($longurl)
