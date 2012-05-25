@@ -81,7 +81,7 @@ class Shorturl_model extends CI_Model {
     }*/
 
     public function getLongUrl($shorturl) {      
-		$response = $dynamodb->get_item(array(
+		$response = $this->dynamodb->get_item(array(
 		    'TableName' => get_cfg_var('aws.param2'),
 		    'Key' => array(
 		        'HashKeyElement' => array( AmazonDynamoDB::TYPE_STRING => "$shorturl" )
