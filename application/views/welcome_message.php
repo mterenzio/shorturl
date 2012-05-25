@@ -2,12 +2,12 @@
 $this->load->view('header');
 ?>
 <div class="container">
-	<!-- Main hero unit for a primary marketing message or call to action -->
-	<div class="hero-unit-home">
-	<img src="/img/dig1st.png" alt="dig1st" id="logo"/>
-        <p>Add a little clarity to your news world with personalized<br /> updates about the stories you love. </p><br />
-        <p><a class="btn primary large" href="http://followth.is/getbookmarklet/">Get the Bookmarklet</a></p>
-        <p><small><a href="http://about.followth.is"> Learn More . . . </a></small></p>
+<!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>dig1st!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+      </div>
 <?php
 $attributes = array('class' => 'shorturlform', 'id' => 'secure');
 if (validation_errors() != '') {
@@ -27,6 +27,24 @@ echo "<div class=\"formelement\">".form_submit('mysubmit', 'Get My ShortURL!', '
 echo form_close();
 
 ?>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>Heading</h2>
+           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
 <script type="text/javascript">
 $(document).ready(function(){
     $('.warning').remove();
@@ -42,8 +60,7 @@ $(document).ready(function(){
       }
     });
 });
-</script>
-</div>
+</script>	  
 <?php
 $this->load->view('footer');
 ?>	
