@@ -35,7 +35,7 @@ echo form_close();
       </div>
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span8">
+        <div class="span12">
           <h2>Install the bookmarklet for easy short url creation . . .</h2>
            <p>Simply drag the button below to the bookmarks bar on your browser and click it when you are on a web page that you'd like to share.</p>
           <p><a class="btn" href="#">dig1st! &raquo;</a></p>
