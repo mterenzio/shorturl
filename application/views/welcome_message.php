@@ -4,7 +4,7 @@ $this->load->view('header');
 <div class="container">
 <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1>dig1st!</h1>
+        <h1>dig1st!</h1><br />
 <?php
 $attributes = array('class' => 'shorturlform', 'id' => 'secure');
 if (validation_errors() != '') {
