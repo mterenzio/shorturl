@@ -886,6 +886,7 @@ input.xxlarge,
 textarea.xxlarge,
 select.xxlarge {
   width: 530px;
+  line-height: 28px;
 }
 textarea.xxlarge {
   overflow-y: scroll;
