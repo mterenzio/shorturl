@@ -19,7 +19,7 @@ $data = array(
 			  'maxlength'   => '250',
 			  'size'        => '100',
 			  'class' 		=> 'xxlarge',
-			  'style'       => 'padding: 100px',
+			  'style'       => 'line-height: 100px',
             );
 echo "<div class=\"formelement\">".form_error('longurl')."</div>";
 echo "<div class=\"formelement\">".form_input($data);
