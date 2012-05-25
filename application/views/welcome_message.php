@@ -15,7 +15,10 @@ echo "<p class=\"warning\">You must javascript enabled to use this form!</p>";
 
 $data = array(
               'name'        => 'longurl',
-              'id'          => 'longurl'
+              'id'          => 'longurl',
+			  'maxlength'   => '250',
+			  'size'        => '100',
+			  'class' 		=> 'input-xlarge'
             );
 echo "<div class=\"formelement\">".form_error('longurl')."</div>";
 echo "<div class=\"formelement\">".form_input($data);
