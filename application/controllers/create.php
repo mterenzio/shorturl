@@ -43,7 +43,7 @@ class Create extends CI_Controller {
 		if($this->input->post('longurl'))
 		{
 			if(filter_var($longurl, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED) == FALSE) {
-		    	$this->form_validation->set_message('_valid_url', 'This is not a valid url. Please include http:// if you have not.');			
+		    	$this->form_validation->set_message('_valid_longurl', 'This is not a valid url. Please include http:// if you have not.');			
 				return false;
 			}
 		}
