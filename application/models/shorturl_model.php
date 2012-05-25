@@ -28,7 +28,13 @@ class Shorturl_model extends CI_Model {
 			                'Value' => array(
 			                    AmazonDynamoDB::TYPE_STRING => "$longurl"
 			                )
-			            )
+			            ),
+			            'created' => array(
+			                'Action' => AmazonDynamoDB::ACTION_PUT,
+			                'Value' => array(
+			                    AmazonDynamoDB::TYPE_STRING => time()
+			                )
+			            )									
 			        )
 			));
 			if ($put->isOK()) {
