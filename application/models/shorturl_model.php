@@ -9,6 +9,7 @@ class Shorturl_model extends CI_Model {
     
     public function createShortUrl($longurl) {
 		if ($nextid = $this->generateNewID()) {
+			$timestamp = time();
 			$guidconvert = base_convert($nextid, 10, 36);
 			$shorturl = "http://".get_cfg_var('aws.param1').'/'.$guidconvert;
 			$put = $this->dynamodb->update_item(array(
@@ -32,7 +33,7 @@ class Shorturl_model extends CI_Model {
 			            'created' => array(
 			                'Action' => AmazonDynamoDB::ACTION_PUT,
 			                'Value' => array(
-			                    AmazonDynamoDB::TYPE_STRING => "time()"
+			                    AmazonDynamoDB::TYPE_STRING => "$timestamp"
 			                )
 			            )									
 			        )
