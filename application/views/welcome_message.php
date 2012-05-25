@@ -1,7 +1,7 @@
 <?php
 $this->load->view('header');
 if (!isset($shorturl)) {
-	$shorturl = "http://dig1.st/shorturls";"
+	$shorturl = "http://dig1.st/shorturls";
 }
 ?>
 <div class="container">
