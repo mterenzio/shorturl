@@ -4,7 +4,8 @@ class Redirect extends CI_Controller {
 
 	public function index()
 	{
-		echo "redirect";
+		$this->load->helper('url');
+		echo current_url();
 	}
 }
 
