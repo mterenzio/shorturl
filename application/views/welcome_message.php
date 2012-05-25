@@ -1,7 +1,13 @@
 <?php
 $this->load->view('header');
 ?>
-<h2>Create your shorturl!</h2>
+<div class="container">
+	<!-- Main hero unit for a primary marketing message or call to action -->
+	<div class="hero-unit-home">
+	<img src="/img/dig1st.png" alt="dig1st" id="logo"/>
+        <p>Add a little clarity to your news world with personalized<br /> updates about the stories you love. </p><br />
+        <p><a class="btn primary large" href="http://followth.is/getbookmarklet/">Get the Bookmarklet</a></p>
+        <p><small><a href="http://about.followth.is"> Learn More . . . </a></small></p>
 <?php
 $attributes = array('class' => 'shorturlform', 'id' => 'secure');
 if (validation_errors() != '') {
@@ -37,6 +43,7 @@ $(document).ready(function(){
     });
 });
 </script>
+</div>
 <?php
 $this->load->view('footer');
 ?>
