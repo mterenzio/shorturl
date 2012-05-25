@@ -46,6 +46,36 @@ class Shorturl_model extends CI_Model {
 		}
     }
 
+    public function updateURLCount($shorturl) {
+			$put = $this->dynamodb->update_item(array(
+			    'TableName' => get_cfg_var('aws.param2'), 
+			        'Key' => array(
+			            'HashKeyElement' => array(
+			                AmazonDynamoDB::TYPE_STRING => "$shorturl"
+			            )
+			        ),
+					'Expected' => array(
+						'shorturl' => array(
+						            "Exists" => "true"
+					)),										
+			        'AttributeUpdates' => array(
+			            'count' => array(
+			                'Action' => AmazonDynamoDB::ACTION_ADD,
+			                'Value' => array(
+			                    AmazonDynamoDB::TYPE_STRING => "1"
+			                )
+			            )								
+			        ),
+					'ReturnValues' => "ALL_NEW"
+			));
+			if ($put->isOK()) {
+				print_r($put);  
+			} else {
+				return false;
+			}
+		}
+    }
+
     private function generateNewID() {      
         $current_count = $this->getLastID();
 		$next = $current_count + 1;

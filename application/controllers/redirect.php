@@ -7,13 +7,13 @@ class Redirect extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('shorturl_model');
 		$shorturl = new Shorturl_model();
-		$result = $shorturl->getLongUrl(current_url());
+		$result = $shorturl->updateURLCount(current_url());
 		if ($result != false) {
 		//store some metric here
 
 		//301 redirect please
 		header( "HTTP/1.1 301 Moved Permanently" ); 
-		header('Location: '.$result);
+		//header('Location: '.$result);
 		} else {
 		//404
 		header ("HTTP/1.0 404 Not Found");
