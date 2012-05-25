@@ -62,7 +62,7 @@ class Shorturl_model extends CI_Model {
 			            'count' => array(
 			                'Action' => AmazonDynamoDB::ACTION_ADD,
 			                'Value' => array(
-			                    AmazonDynamoDB::TYPE_STRING => "1"
+			                    AmazonDynamoDB::TYPE_NUMBER => "1"
 			                )
 			            )								
 			        ),
