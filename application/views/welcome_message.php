@@ -19,13 +19,12 @@ $data = array(
 			  'maxlength'   => '250',
 			  'size'        => '100',
 			  'class' 		=> 'xxlarge',
-			  'style'       => 'line-height: 100px',
             );
 echo "<div class=\"formelement\">".form_error('longurl')."</div>";
 echo "<div class=\"formelement\">".form_input($data);
 
 //submit button and close form
-echo " ".form_submit('mysubmit', 'Shorten!', 'class="btn primary large"')."</div>";
+echo " ".form_submit('mysubmit', 'Shorten!', 'class="btn primary medium"')."</div>";
 echo form_close();
 
 ?>
