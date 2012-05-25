@@ -11,30 +11,45 @@
     <![endif]-->
 
     <!-- Styles -->
-    <link href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-1.1.1.css" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
  	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery.Validate/1.6/jQuery.Validate.min.js"></script> 
   </head>
   <body>
-<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
+    <!-- The top navigation menu -->
+   <div class="topbar">
+    <div class="fill">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+            <h3><a href="#"></a></h3>
+            <ul>
+<?php
+//set active nav bar
+$home = "";
+$getembed = "";
+$getbookmarklet = "";
+switch (uri_string()) {
+    case "home":
+        $home = "class=\"active\"";
+        break;
+    case "getembed":
+        $getembed = "class=\"active\"";
+        break;
+    case "getbookmarklet":
+        $getbookmarklet = "class=\"active\"";
+        break;
+}
+?>
+                <li <?php echo $home;?>><a href="/">Home</a></li>
+                <li><a href="http://about.followth.is">About</a></li>                
+                <li <?php echo $getembed;?>><a href="http://followth.is/getembed/">Get the embed code</a></li>
+                <li <?php echo $getbookmarklet;?>><a href="http://followth.is/getbookmarklet/">Get the bookmarklet</a></li>
+                <li><a href="http://about.followth.is/blog/">Read the Blog</a></li>
+                <li><a href="http://about.followth.is/contact/">Contact</a></li>
+          </ul>
         </div>
-      </div>
     </div>
 </div>
+
+
 
 
