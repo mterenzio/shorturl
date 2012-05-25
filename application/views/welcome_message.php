@@ -17,10 +17,10 @@ $data = array(
               'name'        => 'longurl',
               'id'          => 'longurl'
             );
-echo "<div class=\"formelement\">".form_error('longurl').form_label('Enter a URL to shorten:', 'longurl').form_input($data)."</div>";
+echo "<div class=\"formelement\">".form_error('longurl').form_label('Enter a URL to shorten:', 'longurl').form_input($data);
 
 //submit button and close form
-echo "<div class=\"formelement\">".form_submit('mysubmit', 'Get My ShortURL!', 'class="btn primary large"')."</div>";
+echo form_submit('mysubmit', 'Get My ShortURL!', 'class="btn primary large"')."</div>";
 echo form_close();
 
 ?>
