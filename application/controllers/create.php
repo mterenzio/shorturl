@@ -30,7 +30,7 @@ class Create extends CI_Controller {
 		}
 		//process form
 			$this->load->model('shorturl_model');
-			$shorturl = new Shorturl();
+			$shorturl = new Shorturl_model();
 			if ($surl = $shorturl->createShortUrl($_POST['url'])) {
 		    	echo $surl;
 			} else {
