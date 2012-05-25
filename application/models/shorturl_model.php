@@ -1,6 +1,6 @@
 <?php
 
-class ShortUrl_Model extends CI_Model {
+class Shorturl_model extends CI_Model {
     
     public function __construct() {
 		$this->load->library('aws');
