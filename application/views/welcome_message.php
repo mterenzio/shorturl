@@ -18,7 +18,7 @@ $data = array(
               'id'          => 'longurl',
 			  'maxlength'   => '250',
 			  'size'        => '100',
-			  'class' 		=> 'input-xlarge'
+			  'class' 		=> 'xxlarge'
             );
 echo "<div class=\"formelement\">".form_error('longurl')."</div>";
 echo "<div class=\"formelement\">".form_input($data);
