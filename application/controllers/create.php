@@ -17,21 +17,21 @@ class Create extends CI_Controller {
 		$proceed = false;
 		$seconds = 60*10;
 		//echo '<h1>Testing:</h1><p>Cookie: '.$_COOKIE['token'].'<br />Timestamp: '. $_POST['ts'].'</p>';
-		if(isset($_POST['ts']) && isset($_COOKIE['token']) && $_COOKIE['token'] == md5(get_cfg_var('aws.param4').$_POST['ts'])) $proceed = true;
+		if($this->input->post('ts') && $this->input->cookie('token') && $this->input->cookie('token') == md5(get_cfg_var('aws.param4').$this->input->post('ts'))) $proceed = true;
 
 		if(!$proceed) { 
 		echo 'Form processing halted for suspicious activity';
 		exit;
 		}
 
-		if(((int)$_POST['ts'] + $seconds) < time()) {
+		if(((int)$this->input->post('ts') + $seconds) < time()) {
 		echo 'Too much time elapsed';
 		exit;
 		}
 		//process form
 			$this->load->model('shorturl_model');
 			$shorturl = new Shorturl_model();
-			if ($surl = $shorturl->createShortUrl($_POST['url'])) {
+			if ($surl = $shorturl->createShortUrl($this->input->post('longurl')) {
 		    	echo $surl;
 			} else {
 		    	echo 'error creating short url. . .try again';
