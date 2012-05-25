@@ -7,26 +7,10 @@ class Create extends CI_Controller {
 		$this->load->helper(array('form', 'url'));	
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="formerror">', '</div>');
-		$this->form_validation->set_rules('longurl', 'Longurl', 'trim|required|callback__valid_longurl');
+		$this->form_validation->set_rules('longurl', 'Longurl', 'trim|required|callback__valid_longurl|callback_nocaptcha');
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('welcome_message');
 		} else {
-			//no captch captcha			
-						
-		$proceed = false;
-		$seconds = 60*10;
-		//echo '<h1>Testing:</h1><p>Cookie: '.$_COOKIE['token'].'<br />Timestamp: '. $_POST['ts'].'</p>';
-		if($this->input->post('ts') && $this->input->cookie('token') && $this->input->cookie('token') == md5(get_cfg_var('aws.param4').$this->input->post('ts'))) $proceed = true;
-
-		if(!$proceed) { 
-		echo 'Form processing halted for suspicious activity';
-		exit;
-		}
-
-		if(((int)$this->input->post('ts') + $seconds) < time()) {
-		echo 'Too much time elapsed';
-		exit;
-		}
 		//process form
 			$this->load->model('shorturl_model');
 			$shorturl = new Shorturl_model();
@@ -49,6 +33,28 @@ class Create extends CI_Controller {
 		}
 		return true;
 	}	
+
+	function _nocaptcha()
+	{
+		//no captch captcha			
+						
+	$proceed = false;
+	$seconds = 60*10;
+	//echo '<h1>Testing:</h1><p>Cookie: '.$_COOKIE['token'].'<br />Timestamp: '. $_POST['ts'].'</p>';
+	if($this->input->post('ts') && $this->input->cookie('token') && $this->input->cookie('token') == md5(get_cfg_var('aws.param4').$this->input->post('ts'))) $proceed = true;
+
+	if(!$proceed) { 
+    	$this->form_validation->set_message('_nocaptcha', 'Form processing halted because of suspicious activity.');			
+		return false;
+	}
+
+	if(((int)$this->input->post('ts') + $seconds) < time()) {
+    	$this->form_validation->set_message('_nocaptcha', 'Too much time elapsed between loading of the form and submission. For security reasons we halted the processing try again');			
+		return false;
+	}
+		return true;
+	}	
+
 	
 }
 
