@@ -32,7 +32,7 @@ class Shorturl_model extends CI_Model {
 			            'created' => array(
 			                'Action' => AmazonDynamoDB::ACTION_PUT,
 			                'Value' => array(
-			                    AmazonDynamoDB::TYPE_STRING => time()
+			                    AmazonDynamoDB::TYPE_STRING => "time()"
 			                )
 			            )									
 			        )
