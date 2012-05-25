@@ -1206,8 +1206,8 @@ table .headerSortUp.purple, table .headerSortDown.purple {
   overflow: visible;
 }
 .topbar .fill {
-  background: #222;
-  background-color: #222222;
+  background: #41699E;
+  background-color: #41699E;
   background-repeat: repeat-x;
   background-image: -khtml-gradient(linear, left top, left bottom, from(#333333), to(#222222));
   background-image: -moz-linear-gradient(top, #333333, #222222);

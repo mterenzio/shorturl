@@ -20,7 +20,7 @@
    <div class="topbar">
     <div class="fill">
         <div class="container">
-            <h3><a href="#"><?php echo get_cfg_var('aws.param1');?>/shorturl</a></h3>
+            <h3><a href="#"><?php echo get_cfg_var('aws.param1');?> shorturls</a></h3>
             <ul>
 <?php
 //set active nav bar
