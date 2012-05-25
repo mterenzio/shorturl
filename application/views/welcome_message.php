@@ -1,10 +1,13 @@
 <?php
 $this->load->view('header');
+if (!isset($shorturl)) {
+	$shorturl = "http://dig1.st/shorturls";"
+}
 ?>
 <div class="container">
 <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1>dig1st!</h1><br />
+        <h1>?php echo $shorturl;?></h1><br />
 <?php
 $attributes = array('class' => 'shorturlform', 'id' => 'secure');
 if (validation_errors() != '') {

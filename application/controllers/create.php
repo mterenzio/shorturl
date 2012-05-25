@@ -49,7 +49,7 @@ class Create extends CI_Controller {
 	}
 
 	if(((int)$this->input->post('ts') + $seconds) < time()) {
-    	$this->form_validation->set_message('_nocaptcha', 'Too much time elapsed between loading of the form and submission. For security reasons we halted the processing try again');			
+    	$this->form_validation->set_message('_nocaptcha', 'Too much time elapsed between loading of the form and submission. For security reasons we halted the processing. Refresh and try again.');			
 		return false;
 	}
 		return true;
