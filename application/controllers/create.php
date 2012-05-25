@@ -9,8 +9,7 @@ class Create extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div class="formerror">', '</div>');
 		$this->form_validation->set_rules('longurl', 'Longurl', 'trim|required|callback__valid_longurl');
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->vars($data);
-			$this->load->view('welcome_message', $data);
+			$this->load->view('welcome_message');
 		} else {
 			//no captch captcha			
 						

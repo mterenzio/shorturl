@@ -12,12 +12,13 @@ if (validation_errors() != '') {
 }
 echo form_open_multipart('/create', $attributes);
 echo "<p class=\"warning\">You must javascript enabled to use this form!</p>";
-
+$longurl = set_value('longurl');
 $data = array(
               'name'        => 'longurl',
               'id'          => 'longurl',
 			  'maxlength'   => '250',
 			  'size'        => '100',
+			  'value' 		=> $longurl,
 			  'class' 		=> 'xxlarge',
             );
 echo "<div class=\"formelement\">".form_error('longurl')."</div>";
