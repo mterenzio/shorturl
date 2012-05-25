@@ -1,7 +1,7 @@
 <?php
 $this->load->view('header');
 if (!isset($shorturl)) {
-	$shorturl = "http://dig1.st/shorturl";
+	$shorturl = "http://".get_cfg_var('aws.param1')."/shorturl";
 }
 ?>
 <div class="container">
