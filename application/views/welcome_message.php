@@ -20,7 +20,7 @@ $data = array(
 echo "<div class=\"formelement\">".form_error('longurl').form_label('Enter a URL to shorten:', 'longurl').form_input($data)."</div>";
 
 //submit button and close form
-echo "<div class=\"btn primary large\">".form_submit('mysubmit', 'Get My ShortURL!', 'class="submit"')."</div>";
+echo "<div class=\"formelement\">".form_submit('mysubmit', 'Get My ShortURL!', 'class="btn primary large"')."</div>";
 echo form_close();
 
 ?>
