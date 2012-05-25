@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "welcome";
 $route['create'] = 'create';
-$route[(:any)] = 'redirect';
+$route['(:any)'] = 'redirect';
 $route['404_override'] = '';
 
 
