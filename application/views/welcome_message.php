@@ -25,7 +25,7 @@ echo form_close();
 $(document).ready(function(){
     $('.warning').remove();
     $.get("token.php",function(txt){
-      $(".secure").append('<input type="hidden" name="ts" value="'+txt+'" />');
+      $(".shorturlform").append('<input type="hidden" name="ts" value="'+txt+'" />');
     });
     $("#create").validate({
       rules: {

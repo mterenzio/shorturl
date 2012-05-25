@@ -17,7 +17,7 @@ class Create extends CI_Controller {
 		$proceed = false;
 		$seconds = 60*10;
 		//echo '<h1>Testing:</h1><p>Cookie: '.$_COOKIE['token'].'<br />Timestamp: '. $_POST['ts'].'</p>';
-		if(isset($_POST['ts']) && isset($_COOKIE['token']) && $_COOKIE['token'] == md5('makemeamillionbucks'.$_POST['ts'])) $proceed = true;
+		if(isset($_POST['ts']) && isset($_COOKIE['token']) && $_COOKIE['token'] == md5(get_cfg_var('aws.param4').$_POST['ts'])) $proceed = true;
 
 		if(!$proceed) { 
 		echo 'Form processing halted for suspicious activity';
