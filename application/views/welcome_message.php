@@ -46,5 +46,4 @@ $(document).ready(function(){
 </div>
 <?php
 $this->load->view('footer');
-?>
-	
+?>	
