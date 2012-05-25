@@ -1,7 +1,7 @@
 <?php
 $this->load->view('header');
 if (!isset($shorturl)) {
-	$shorturl = "http://dig1.st/shorturls";
+	$shorturl = "http://dig1.st/shorturl";
 }
 ?>
 <div class="container">
@@ -10,9 +10,6 @@ if (!isset($shorturl)) {
         <h1><?php echo $shorturl;?></h1><br />
 <?php
 $attributes = array('class' => 'shorturlform', 'id' => 'secure');
-if (validation_errors() != '') {
-	echo "<div class=\"formerror\">There were errors. Details below.</div>";
-}
 echo form_open_multipart('/create', $attributes);
 echo "<p class=\"warning\">You must javascript enabled to use this form!</p>";
 $longurl = set_value('longurl');
@@ -35,10 +32,10 @@ echo form_close();
       </div>
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span12">
+        <div class="span16">
           <h2>Install the bookmarklet for easy short url creation . . .</h2>
            <p>Simply drag the button below to the bookmarks bar on your browser and click it when you are on a web page that you'd like to share.</p>
-          <p><a class="btn" href="#">dig1st! &raquo;</a></p>
+          <p><a class="btn" href="#">dig1.st</a></p>
         </div>
       </div>	  
 <script type="text/javascript">
