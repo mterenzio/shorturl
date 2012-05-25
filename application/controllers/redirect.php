@@ -18,7 +18,6 @@ class Redirect extends CI_Controller {
 		//404
 		header ("HTTP/1.0 404 Not Found");
 		print_r($result);
-		echo $url;
 		}
 
 	}
