@@ -31,7 +31,7 @@ class Create extends CI_Controller {
 		//process form
 			$this->load->model('shorturl_model');
 			$shorturl = new Shorturl_model();
-			if ($surl = $shorturl->createShortUrl($this->input->post('longurl')) {
+			if ($surl = $shorturl->createShortUrl($this->input->post('longurl'))) {
 		    	echo $surl;
 			} else {
 		    	echo 'error creating short url. . .try again';
