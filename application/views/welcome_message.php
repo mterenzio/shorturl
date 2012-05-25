@@ -5,17 +5,6 @@ $this->load->view('header');
 <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>dig1st!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn primary large">Learn more &raquo;</a></p>
-      </div>
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span8">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-      </div>	  
 <?php
 $attributes = array('class' => 'shorturlform', 'id' => 'secure');
 if (validation_errors() != '') {
@@ -31,10 +20,19 @@ $data = array(
 echo "<div class=\"formelement\">".form_error('longurl').form_label('Enter a URL to shorten:', 'longurl').form_input($data)."</div>";
 
 //submit button and close form
-echo "<div class=\"formelement\">".form_submit('mysubmit', 'Get My ShortURL!', 'class="submit"')."</div>";
+echo "<div class=\"btn primary large\">".form_submit('mysubmit', 'Get My ShortURL!', 'class="submit"')."</div>";
 echo form_close();
 
 ?>
+      </div>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span8">
+          <h2>Install the bookmarklet for easy short url creation . . .</h2>
+           <p>Simply drag the button below to the bookmarks bar on your browser and click it when you are on a web page that you'd like to share.</p>
+          <p><a class="btn" href="#">dig1st! &raquo;</a></p>
+        </div>
+      </div>	  
 <script type="text/javascript">
 $(document).ready(function(){
     $('.warning').remove();
