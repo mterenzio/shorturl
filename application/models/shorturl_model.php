@@ -72,7 +72,7 @@ class Shorturl_model extends CI_Model {
 				echo "here";
 				echo print_r($put);  
 			} else {
-				echo"false";
+				echo print_r($put);  
 				return false;
 			}
     }
