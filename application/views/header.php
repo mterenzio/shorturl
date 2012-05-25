@@ -20,7 +20,7 @@
    <div class="topbar">
     <div class="fill">
         <div class="container">
-            <h3><a href="#"></a></h3>
+            <h3><a href="#">dig1st!</a></h3>
             <ul>
 <?php
 //set active nav bar
@@ -39,12 +39,10 @@ switch (uri_string()) {
         break;
 }
 ?>
-                <li <?php echo $home;?>><a href="/">Home</a></li>
-                <li><a href="http://about.followth.is">About</a></li>                
-                <li <?php echo $getembed;?>><a href="http://followth.is/getembed/">Get the embed code</a></li>
+                <li><a href="http://journalab.com/about">About</a></li>                
                 <li <?php echo $getbookmarklet;?>><a href="http://followth.is/getbookmarklet/">Get the bookmarklet</a></li>
-                <li><a href="http://about.followth.is/blog/">Read the Blog</a></li>
-                <li><a href="http://about.followth.is/contact/">Contact</a></li>
+                <li><a href="http://journalab.com">JournaLab Blog</a></li>
+                <li><a href="http://journalab.com/contact/">Contact</a></li>
           </ul>
         </div>
     </div>
