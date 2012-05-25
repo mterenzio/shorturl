@@ -69,8 +69,10 @@ class Shorturl_model extends CI_Model {
 					'ReturnValues' => "ALL_NEW"
 			));
 			if ($put->isOK()) {
-				print_r($put);  
+				echo "here";
+				echo print_r($put);  
 			} else {
+				echo"false";
 				return false;
 			}
     }
