@@ -55,9 +55,11 @@ class Shorturl_model extends CI_Model {
 			            )
 			        ),
 					'Expected' => array(
-						'shorturl' => array(
-						            "Exists" => "true"
-					)),										
+					        'shorturl'   => array( 
+					            'Value' => array( AmazonDynamoDB::TYPE_STRING => "$shorturl"  ),
+								'Exists' => "true"
+							)
+					),										
 			        'AttributeUpdates' => array(
 			            'count' => array(
 			                'Action' => AmazonDynamoDB::ACTION_ADD,
