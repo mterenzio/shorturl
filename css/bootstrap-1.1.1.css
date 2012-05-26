@@ -1206,16 +1206,16 @@ table .headerSortUp.purple, table .headerSortDown.purple {
   overflow: visible;
 }
 .topbar .fill {
-  background: #41699E;
-  background-color: #41699E;
+  background: #68BEE3;
+  background-color: #68BEE3;
   background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#333333), to(#41699E));
-  background-image: -moz-linear-gradient(top, #333333, #41699E);
-  background-image: -ms-linear-gradient(top, #333333, #41699E);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #41699E));
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#333333), to(#68BEE3));
+  background-image: -moz-linear-gradient(top, #333333, #68BEE3);
+  background-image: -ms-linear-gradient(top, #333333, #68BEE3);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #68BEE3));
   background-image: -webkit-linear-gradient(top, #333333, #v);
-  background-image: -o-linear-gradient(top, #333333, #41699E);
-  background-image: linear-gradient(top, #333333, #41699E);
+  background-image: -o-linear-gradient(top, #333333, #68BEE3);
+  background-image: linear-gradient(top, #333333, #68BEE3);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
