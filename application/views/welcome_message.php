@@ -2,15 +2,12 @@
 $this->load->view('header');
 if (!isset($shorturl)) {
 	$shorturl = "http://".get_cfg_var('aws.param1')."/shorturl";
-	$style="style=\"color: #cfcfcf;\"";
-} else {
-	$style = "";
 }
 ?>
 <div class="container">
 <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1 <?php echo $style;?>><?php echo $shorturl;?></h1><br />
+        <h1><?php echo $shorturl;?></h1><br />
 <?php
 $attributes = array('class' => 'shorturlform', 'id' => 'secure');
 echo form_open_multipart('/create', $attributes);
