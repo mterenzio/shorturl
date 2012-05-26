@@ -885,7 +885,7 @@ select.xlarge {
 input.xxlarge,
 textarea.xxlarge,
 select.xxlarge {
-  width: 530px;
+  width: 630px;
 }
 textarea.xxlarge {
   overflow-y: scroll;
@@ -1461,7 +1461,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
 }
 .hero-unit h1 {
   margin-bottom: 0;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 1;
   letter-spacing: -1px;
 }
