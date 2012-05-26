@@ -13,7 +13,7 @@ class Redirect extends CI_Controller {
 
 		//301 redirect please
 		header( "HTTP/1.1 301 Moved Permanently" ); 
-		//header('Location: '.$result);
+		header('Location: '.$result);
 		} else {
 		//404
 		header ("HTTP/1.0 404 Not Found");
