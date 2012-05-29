@@ -10,10 +10,10 @@ class Redirect extends CI_Controller {
 		$result = $shorturl->updateURLCount(current_url());
 		if ($result != false) {
 		//store some metric here
-		echo print_r($result);
+		//echo print_r($result);
 		//301 redirect please
-		//header( "HTTP/1.1 301 Moved Permanently" ); 
-		//header('Location: '.$result);
+		header( "HTTP/1.1 301 Moved Permanently" ); 
+		header('Location: '.$result);
 		} else {
 		//404
 		header ("HTTP/1.0 404 Not Found");
