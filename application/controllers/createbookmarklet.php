@@ -2,8 +2,9 @@
 
 class Createbookmarklet extends CI_Controller {
 
-	public function index($longurl)
+	public function index()
 	{
+		        $longurl = $this->input->get('url', TRUE);
 				$this->load->model('shorturl_model');
 				$shorturl = new Shorturl_model();
 				if ($surl = $shorturl->createShortUrl($longurl)) {
