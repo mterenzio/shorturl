@@ -2,10 +2,8 @@
 
 class Createbookmarklet extends CI_Controller {
 
-	public function index()
+	public function index($longurl)
 	{
-		public function bookmarklet($longurl)
-		{
 				$this->load->model('shorturl_model');
 				$shorturl = new Shorturl_model();
 				if ($surl = $shorturl->createShortUrl($longurl)) {
@@ -15,7 +13,6 @@ class Createbookmarklet extends CI_Controller {
 				} else {
 			    	echo 'error creating short url. . .try again';
 				}
-		}
 	}
 			
 }
