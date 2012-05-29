@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "welcome";
+$route['createbookmarklet'] = 'createbookmarklet';
 $route['create'] = 'create';
 $route['(:any)'] = 'redirect';
 $route['404_override'] = '';
