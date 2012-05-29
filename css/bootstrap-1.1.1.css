@@ -1197,7 +1197,7 @@ table .headerSortUp.purple, table .headerSortDown.purple {
  * Repeatable UI elements outside the base styles provided from the scaffolding
  * ---------------------------------------------------------------------------- */
 .topbar {
-  height: 50px;
+  height: 40px;
   position: fixed;
   top: 0;
   left: 0;
