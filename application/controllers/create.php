@@ -27,7 +27,7 @@ class Create extends CI_Controller {
 	{
 			$this->load->model('shorturl_model');
 			$shorturl = new Shorturl_model();
-			if ($surl = $shorturl->createShortUrl($longurl) {
+			if ($surl = $shorturl->createShortUrl($longurl)) {
 				echo $surl;
 				//$data['shorturl'] = $surl;
 		    	//$this->load->view('bookmarklet_display_shorturl', $data);
