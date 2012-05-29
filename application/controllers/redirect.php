@@ -12,8 +12,8 @@ class Redirect extends CI_Controller {
 		//store some metric here
 
 		//301 redirect please
-		//header( "HTTP/1.1 301 Moved Permanently" ); 
-		//header('Location: '.$result);
+		header( "HTTP/1.1 301 Moved Permanently" ); 
+		header('Location: '.$result);
 		} else {
 		//404
 		header ("HTTP/1.0 404 Not Found");
