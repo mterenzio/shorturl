@@ -41,6 +41,7 @@ class Shorturl_model extends CI_Model {
 			if ($put->isOK()) {
 				return $shorturl;  
 			} else {
+				echo print_r($put);
 				return false;
 			}
 		}
