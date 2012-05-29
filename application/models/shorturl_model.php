@@ -71,7 +71,7 @@ class Shorturl_model extends CI_Model {
 					'ReturnValues' => "ALL_NEW"
 			));
 			if ($put->isOK()) {
-				return (string) $put->body->longurl->{AmazonDynamoDB::TYPE_STRING}; 
+				echo print_r($put->body->longurl->{AmazonDynamoDB::TYPE_STRING}); 
 			} else {  
 				return false;
 			}
