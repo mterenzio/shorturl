@@ -53,7 +53,7 @@ $(document).ready(function(){
       }
     });
 	$("#shorty").fadeOut("slow").css("background-color", "#FFFF99");
-	$("#shorty").show();
+	$("#shorty").fadeIn(0).css("background-color", "#FFF);
 });
 </script>	  
 <?php
