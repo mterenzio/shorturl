@@ -52,7 +52,6 @@ $(document).ready(function(){
         }
       }
     });
-	$("#shorty").fadeIn("slow");
 });
 </script>	  
 <?php
