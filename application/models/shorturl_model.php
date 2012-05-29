@@ -71,7 +71,7 @@ class Shorturl_model extends CI_Model {
 					'ReturnValues' => "ALL_NEW"
 			));
 			if ($put->isOK()) {
-				print_r($put); 
+				print_r($put->longurl); 
 			} else {  
 				return false;
 			}
