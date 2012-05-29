@@ -8,9 +8,8 @@ class Createbookmarklet extends CI_Controller {
 				$this->load->model('shorturl_model');
 				$shorturl = new Shorturl_model();
 				if ($surl = $shorturl->createShortUrl($longurl)) {
-					echo $surl;
-					//$data['shorturl'] = $surl;
-			    	//$this->load->view('bookmarklet_display_shorturl', $data);
+					$data['shorturl'] = $surl;
+			    	$this->load->view('bookmarklet_display_url', $data);
 				} else {
 			    	echo 'error creating short url. . .try again';
 				}
