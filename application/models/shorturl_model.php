@@ -44,6 +44,8 @@ class Shorturl_model extends CI_Model {
 				echo print_r($put);
 				return false;
 			}
+		} else {
+			return false;
 		}
     }
 
