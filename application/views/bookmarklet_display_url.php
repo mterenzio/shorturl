@@ -1,24 +1,60 @@
 <?php
 $this->load->view('basicheader');
 ?>
-	<style type="text/css">
-		body { font-family:arial,sans-serif; font-size:9pt; }
-		
-		.my_clip_button { width:150px; text-align:center; border:1px solid black; background-color:#ccc; margin:10px; padding:10px; cursor:default; font-size:9pt; }
-		.my_clip_button.hover { background-color:#eee; }
-		.my_clip_button.active { background-color:#aaa; }
-	</style>
+<style type="text/css">
+                        #d_clip_button {
+                                text-align:center; 
+                                border:1px solid black; 
+                                background-color:#ccc; 
+                                margin:10px; padding:10px; 
+                        }
+                        #d_clip_button.hover { background-color:#eee; }
+                        #d_clip_button.active { background-color:#aaa; }
+                </style>
+
 <div>
-<h1 id="shorty" style="text-align: center; width: 600px;"><?php echo $shorturl;?></h1>				<div id="d_clip_container" style="position:relative">
-					<div id="d_clip_button" class="my_clip_button"><b>Copy To Clipboard...</b></div>
-				</div>
-</div>
-<script>
-var clip = null;
-clip = new ZeroClipboard.Client();
-clip.glue( 'd_clip_button', 'd_clip_container' );
-clip.setText( "Copy me testeroni!" );
-<script>
+<h1 id="shorty" style="text-align: center; width: 600px;"><?php echo $shorturl;?></h1>
+Copy to Clipboard: <input type="text" id="clip_text" size="40" value="Copy me!"/><br/><br/> 
+        
+                <div id="d_clip_button">Copy To Clipboard</div>
+        
+                <script language="JavaScript">
+                        var clip = new ZeroClipboard.Client();
+                        
+                        clip.setText( '' ); // will be set later on mouseDown
+                        clip.setHandCursor( true );
+                        clip.setCSSEffects( true );
+                        
+                        clip.addEventListener( 'load', function(client) {
+                                // alert( "movie is loaded" );
+                        } );
+                        
+                        clip.addEventListener( 'complete', function(client, text) {
+                                alert("Copied text to clipboard: " + text );
+                        } );
+                        
+                        clip.addEventListener( 'mouseOver', function(client) {
+                                // alert("mouse over"); 
+                        } );
+                        
+                        clip.addEventListener( 'mouseOut', function(client) { 
+                                // alert("mouse out"); 
+                        } );
+                        
+                        clip.addEventListener( 'mouseDown', function(client) { 
+                                // set text to copy here
+                                clip.setText( document.getElementById('clip_text').value );
+                                
+                                // alert("mouse down"); 
+                        } );
+                        
+                        clip.addEventListener( 'mouseUp', function(client) { 
+                                // alert("mouse up"); 
+                        } );
+                        
+                        clip.glue( 'd_clip_button' );
+                </script>
+
 <?php
 $this->load->view('basicfooter');
 ?>
