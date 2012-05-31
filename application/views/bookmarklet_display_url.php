@@ -31,7 +31,7 @@ $this->load->view('basicheader');
                         
                         clip.addEventListener( 'mouseDown', function(client) { 
                                 // set text to copy here
-                                clip.setText( document.getElementById('shorty').value );
+                                clip.setText( document.getElementById('shorty').innerHTML );
                                 
                                 // alert("mouse down"); 
                         } );
