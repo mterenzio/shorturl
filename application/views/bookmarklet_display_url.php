@@ -14,7 +14,7 @@ $this->load->view('basicheader');
                 </style>
 
 <div>
-<h1 id="shorty" style="text-align: center; width: 600px;"><?php echo $shorturl;?></h1>
+<span id="shorty" style="text-align: center; width: 600px;font-size: 120%;"><?php echo $shorturl;?></span>
         
                 <div id="d_clip_button">Copy</div>
 </div>        
