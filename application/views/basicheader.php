@@ -14,6 +14,7 @@
     <link href="/css/bootstrap-1.1.1.css" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
  	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery.Validate/1.6/jQuery.Validate.min.js"></script> 
+	<script type="text/javascript" src="http://cdn.dig1.st/js/zeroclipboard/ZeroClipboard.js"></script>
   </head>
   <body>
 
