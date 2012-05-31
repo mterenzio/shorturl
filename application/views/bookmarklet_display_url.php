@@ -14,42 +14,26 @@ $this->load->view('basicheader');
 
 <div>
 <h1 id="shorty" style="text-align: center; width: 600px;"><?php echo $shorturl;?></h1>
-Copy to Clipboard: <input type="text" id="clip_text" size="40" value="Copy me!"/><br/><br/> 
         
                 <div id="d_clip_button">Copy To Clipboard</div>
-        
+</div>        
                 <script language="JavaScript">
                         var clip = new ZeroClipboard.Client();
                         
                         clip.setText( '' ); // will be set later on mouseDown
                         clip.setHandCursor( true );
                         clip.setCSSEffects( true );
-                        
-                        clip.addEventListener( 'load', function(client) {
-                                // alert( "movie is loaded" );
-                        } );
+
                         
                         clip.addEventListener( 'complete', function(client, text) {
                                 alert("Copied text to clipboard: " + text );
                         } );
                         
-                        clip.addEventListener( 'mouseOver', function(client) {
-                                // alert("mouse over"); 
-                        } );
-                        
-                        clip.addEventListener( 'mouseOut', function(client) { 
-                                // alert("mouse out"); 
-                        } );
-                        
                         clip.addEventListener( 'mouseDown', function(client) { 
                                 // set text to copy here
-                                clip.setText( document.getElementById('clip_text').value );
+                                clip.setText( document.getElementById('shorty').value );
                                 
                                 // alert("mouse down"); 
-                        } );
-                        
-                        clip.addEventListener( 'mouseUp', function(client) { 
-                                // alert("mouse up"); 
                         } );
                         
                         clip.glue( 'd_clip_button' );
