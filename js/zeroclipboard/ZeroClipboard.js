@@ -5,7 +5,7 @@ var ZeroClipboard = {
 	
 	version: "1.0.7",
 	clients: {}, // registered upload clients on page, indexed by id
-	moviePath: 'ZeroClipboard.swf', // URL to movie
+	moviePath: 'http://cdn.dig1.st/js/zeroclipboard/ZeroClipboard.swf', // URL to movie
 	nextId: 1, // ID of next movie
 	
 	$: function(thingy) {
