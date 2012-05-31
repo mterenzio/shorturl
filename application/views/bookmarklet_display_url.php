@@ -7,6 +7,7 @@ $this->load->view('basicheader');
                                 border:1px solid black; 
                                 background-color:#ccc; 
                                 margin:10px; padding:10px; 
+								width: 100px;
                         }
                         #d_clip_button.hover { background-color:#eee; }
                         #d_clip_button.active { background-color:#aaa; }
@@ -15,7 +16,7 @@ $this->load->view('basicheader');
 <div>
 <h1 id="shorty" style="text-align: center; width: 600px;"><?php echo $shorturl;?></h1>
         
-                <div id="d_clip_button">Copy To Clipboard</div>
+                <div id="d_clip_button">Copy</div>
 </div>        
                 <script language="JavaScript">
                         var clip = new ZeroClipboard.Client();
