@@ -16,7 +16,7 @@ $this->load->view('basicheader');
 <div>
 <span id="shorty" style="text-align: center; width: 600px;font-size: 120%;"><?php echo $shorturl;?></span>
         
-                <div id="d_clip_button">Copy</div>
+                <span id="d_clip_button">Copy</span>
 </div>        
                 <script language="JavaScript">
                         var clip = new ZeroClipboard.Client();
