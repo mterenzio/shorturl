@@ -39,10 +39,7 @@ switch (uri_string()) {
         break;
 }
 ?>
-                <li><a href="http://dig1.st/about">About</a></li>                
-                <li <?php echo $getbookmarklet;?>><a href="http://dig1.st">Get the bookmarklet</a></li>
-                <li><a href="http://journalab.com">JournaLab Blog</a></li>
-                <li><a href="http://dig1.st/contact/">Contact</a></li>
+
           </ul>
         </div>
     </div>
