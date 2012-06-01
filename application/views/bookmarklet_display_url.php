@@ -28,7 +28,7 @@ $this->load->view('basicheader');
                         
                         clip.addEventListener( 'complete', function(client, text) {
                                 //alert("Copied text to clipboard: " + text );
-								d_clip_button.style.borderColor = "green";
+								document.getElementById('d_clip_button').style.borderColor = 'green';
                         } );
                         
                         clip.addEventListener( 'mouseDown', function(client) { 
