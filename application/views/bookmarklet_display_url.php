@@ -4,8 +4,8 @@ $this->load->view('basicheader');
 <style type="text/css">
                         #d_clip_button {
                                 text-align:center; 
-                                border:1px solid black; 
-                                background-color:#ccc; 
+                                border:2px solid red; 
+                                background-color:#fff; 
                                 margin:10px; padding:3px; 
 								width: 100px;
                         }
@@ -27,7 +27,8 @@ $this->load->view('basicheader');
 
                         
                         clip.addEventListener( 'complete', function(client, text) {
-                                alert("Copied text to clipboard: " + text );
+                                //alert("Copied text to clipboard: " + text );
+								d_clip_button.style.borderColor = "green";
                         } );
                         
                         clip.addEventListener( 'mouseDown', function(client) { 
