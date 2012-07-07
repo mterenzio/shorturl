@@ -8,7 +8,9 @@ class Callback extends CI_Controller {
 		require_once(APPPATH.'classes/epicenter/EpiCurl.php');
 		require_once(APPPATH.'classes/epicenter/EpiOAuth.php');
 		require_once(APPPATH.'classes/epicenter/EpiTwitter.php');
-		$twitterObj = new EpiTwitter(get_cfg_var('aws.param4'), get_cfg_var('aws.param5'));
+		$toauthkey = get_cfg_var('aws.param4');
+		$toauthksecret = get_cfg_var('aws.param5');
+		$twitterObj = new EpiTwitter($toauthkey, $toauthksecret);	
 		$twitterObj->setToken($_GET['oauth_token']);				
 		try {
 		    $token = $twitterObj->getAccessToken();
