@@ -16,7 +16,7 @@ class Callback extends CI_Controller {
 		    $token = $twitterObj->getAccessToken();
 		    $twitterObj->setToken($token->oauth_token, $token->oauth_token_secret);
 		}catch(EpiTwitterException $e){
-		    echo 'We had a problem logging you in to Twitter. It\'s probably their fault. ;)';\
+		    echo 'We had a problem logging you in to Twitter. It\'s probably their fault. ;)';
 		    $error = json_decode($e->getMessage());
 		    echo $error;
 		    exit;
