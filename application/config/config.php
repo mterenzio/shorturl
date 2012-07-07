@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = get_cfg_var('aws.secret_key');
+$config['encryption_key'] = 'test';
 
 /*
 |--------------------------------------------------------------------------
