@@ -1,6 +1,6 @@
 <?php
 $ct = mktime();
-setcookie('token',md5(get_cfg_var('aws.param4').$ct), 0, '/');
+setcookie('token',md5("shouldbearandomstring".$ct), 0, '/');
 # 'Expires' in the past
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 

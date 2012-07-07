@@ -7,7 +7,7 @@ if (!isset($shorturl)) {
 <div class="container">
 <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1 id="shorty"><?php echo $shorturl;?></h1><br />
+        <h1 id="shorty"><?php echo $shorturl;?> created by <?php echo $logon;?></h1><br />
 <?php
 $attributes = array('class' => 'shorturlform', 'id' => 'secure');
 echo form_open_multipart('/create', $attributes);

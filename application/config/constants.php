@@ -17,7 +17,6 @@ define('FILE_READ_MODE', 0644);
 define('FILE_WRITE_MODE', 0666);
 define('DIR_READ_MODE', 0755);
 define('DIR_WRITE_MODE', 0777);
-
 /*
 |--------------------------------------------------------------------------
 | File Stream Modes
@@ -35,6 +34,11 @@ define('FOPEN_WRITE_CREATE',					'ab');
 define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
+
+//Grabbed from beanstalk to use wherever needed with twitter async
+define("TWITTER_CONSUMER_KEY", get_cfg_var('aws.param4'));
+define("TWITTER_CONSUMER_SECRET", get_cfg_var('aws.param5'));	
+
 
 
 /* End of file constants.php */

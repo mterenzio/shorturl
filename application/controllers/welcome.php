@@ -21,7 +21,27 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		$this->load->view('welcome_message');
+		$this->load->library('session');
+		if ($this->session->userdata('twitter_id')) {
+		    try {
+		    	$twitterObj->setToken($this->session->userdata('oauth_token'), $this->session->userdata('oauth_secret'));
+		    	$twitterInfo = $twitterObj->get_accountVerify_credentials();
+		    	$twitterInfo->response;
+		    }catch(EpiTwitterServiceUnavailableException $e){
+		         echo 'Twitter is unavaiable. That stinks but there is nothing we can do.';
+		         exit;
+		     }catch(Exception $e){
+		         echo "Something unknown is wrong with our connection with twitter. Please try back later.";
+		         exit;
+		    }    
+		    $logon = "Welcome, ".$twitterInfo->name."<br/>";
+		} else {
+		  $url = $twitterObj->getAuthorizeUrl();
+		  //header("Location: ".$url);
+		  $logon = "<a href=\"".$url."\">Sign in</a><br/>";
+		}
+		$data['logon'] = $logon;
+		$this->load->view('welcome_message', $data);
 	}
 }
 

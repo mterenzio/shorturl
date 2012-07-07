@@ -3,6 +3,7 @@
 class Shorturl_model extends CI_Model {
     
     public function __construct() {
+		$this->load->library('session');
 		$this->load->library('aws');
 		$this->dynamodb = new AmazonDynamoDB();         
     } 
@@ -12,6 +13,11 @@ class Shorturl_model extends CI_Model {
 			$timestamp = time();
 			$guidconvert = base_convert($nextid, 10, 36);
 			$shorturl = "http://".get_cfg_var('aws.param1').'/'.$guidconvert;
+			if ($this->session->userdata('twitter_id')) {
+				$twitterid = $this->session->userdata('twitter_id');
+			} else {
+				$twitterid = null;
+			}
 			$put = $this->dynamodb->update_item(array(
 			    'TableName' => get_cfg_var('aws.param2'), 
 			        'Key' => array(
@@ -35,7 +41,13 @@ class Shorturl_model extends CI_Model {
 			                'Value' => array(
 			                    AmazonDynamoDB::TYPE_STRING => "$timestamp"
 			                )
-			            )									
+			            ),
+			            'createdby' => array(
+			                'Action' => AmazonDynamoDB::ACTION_PUT,
+			                'Value' => array(
+			                    AmazonDynamoDB::TYPE_STRING => "$twitterid"
+			                )
+			            )															
 			        )
 			));
 			if ($put->isOK()) {
