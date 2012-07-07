@@ -1,5 +1,1 @@
-<?php
-
-echo "Matt is great.";
-
-?>
+Matt is great

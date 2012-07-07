@@ -35,11 +35,5 @@ define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
-//Grabbed from beanstalk to use wherever needed with twitter async
-define("TWITTER_CONSUMER_KEY", get_cfg_var('aws.param4'));
-define("TWITTER_CONSUMER_SECRET", get_cfg_var('aws.param5'));	
-
-
-
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
