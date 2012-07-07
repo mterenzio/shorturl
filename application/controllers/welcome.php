@@ -28,7 +28,9 @@ class Welcome extends CI_Controller {
 		$toauthkey = get_cfg_var('aws.param4');
 		$toauthksecret = get_cfg_var('aws.param5');
 		$twitterObj = new EpiTwitter($toauthkey, $toauthksecret);	
-		if ($this->session->userdata('twitter_id')) {		
+		if ($this->session->userdata('twitter_id')) {
+				echo $this->session->userdata('oauth_token');
+				echo $this->session->userdata('oauth_secret');	
 		    try {
 		    	$twitterObj->setToken($this->session->userdata('oauth_token'), $this->session->userdata('oauth_secret'));
 		    	$twitterInfo = $twitterObj->get_accountVerify_credentials();
@@ -37,6 +39,7 @@ class Welcome extends CI_Controller {
 		         echo 'Twitter is unavaiable. That stinks but there is nothing we can do.';
 		         exit;
 		     }catch(Exception $e){
+				 echo $e;
 		         echo "Something unknown is wrong with our connection with twitter. Please try back later.";
 		         exit;
 		    }    
@@ -46,10 +49,10 @@ class Welcome extends CI_Controller {
 				$url = $twitterObj->getAuthorizeUrl();
 				//header("Location: ".$url);
 				$logon = "<a href=\"".$url."\">Sign in</a><br/>";
-	     }catch(Exception $e){
-	         echo $e;
-	         exit;
-	    }  
+	    	 }catch(Exception $e){
+	         	echo $e;
+	         	exit;
+	    	}  
 		}
 		$data['logon'] = $logon;
 		$this->load->view('welcome_message', $data);
