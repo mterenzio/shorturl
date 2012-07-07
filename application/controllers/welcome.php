@@ -22,9 +22,9 @@ class Welcome extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		$this->load->library('session');
-		require_once(BASEPATH.'classes/epicenter/EpiCurl.php');
-		require_once(BASEPATH.'classes/epicenter/EpiOAuth.php');
-		require_once(BASEPATH.'classes/epicenter/EpiTwitter.php');
+		require_once(APPPATH.'classes/epicenter/EpiCurl.php');
+		require_once(APPPATH.'classes/epicenter/EpiOAuth.php');
+		require_once(APPPATH.'classes/epicenter/EpiTwitter.php');
 		$twitterObj = new EpiTwitter(get_cfg_var('aws.param4'), get_cfg_var('aws.param5'));	
 		if ($this->session->userdata('twitter_id')) {		
 		    try {
