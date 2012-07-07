@@ -42,9 +42,14 @@ class Welcome extends CI_Controller {
 		    }    
 		    $logon = "Welcome, ".$twitterInfo->name."<br/>";
 		} else {
-		  $url = $twitterObj->getAuthorizeUrl();
-		  //header("Location: ".$url);
-		  $logon = "<a href=\"".$url."\">Sign in</a><br/>";
+			try {
+				$url = $twitterObj->getAuthorizeUrl();
+				//header("Location: ".$url);
+				$logon = "<a href=\"".$url."\">Sign in</a><br/>";
+	     }catch(Exception $e){
+	         echo $e;
+	         exit;
+	    }  
 		}
 		$data['logon'] = $logon;
 		$this->load->view('welcome_message', $data);
