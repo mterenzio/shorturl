@@ -33,6 +33,7 @@ class Callback extends CI_Controller {
 		$this->session->set_userdata('oauth_token', $token->oauth_token);
 		$this->session->set_userdata('oauth_token_secret', $token->oauth_token_secret);
 		//header("Location: ".$_COOKIE["return"]);
+		$this->load->helper('url');
 		redirect('/', 'location', 301);
 	}
 			
