@@ -25,7 +25,9 @@ class Welcome extends CI_Controller {
 		require_once(APPPATH.'classes/epicenter/EpiCurl.php');
 		require_once(APPPATH.'classes/epicenter/EpiOAuth.php');
 		require_once(APPPATH.'classes/epicenter/EpiTwitter.php');
-		$twitterObj = new EpiTwitter(get_cfg_var('aws.param4'), get_cfg_var('aws.param5'));	
+		$toauthkey = get_cfg_var('aws.param4');
+		$toauthksecret = get_cfg_var('aws.param5');
+		$twitterObj = new EpiTwitter($toauthkey, $toauthksecret);	
 		if ($this->session->userdata('twitter_id')) {		
 		    try {
 		    	$twitterObj->setToken($this->session->userdata('oauth_token'), $this->session->userdata('oauth_secret'));
