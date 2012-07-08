@@ -155,7 +155,7 @@ class Shorturl_model extends CI_Model {
     }
 
     public function getAllByUser($twitterid) {      
-		$response = $dynamodb->scan(array(
+		$response = $this->dynamodb->scan(array(
 		    'TableName'       => get_cfg_var('aws.param2'),
 		    'AttributesToGet' => array('longurl'),
 		    'ScanFilter'      => array(
