@@ -16,7 +16,7 @@ class Shorturl_model extends CI_Model {
 			if ($this->session->userdata('twitter_id')) {
 				$twitterid = $this->session->userdata('twitter_id');
 			} else {
-				$twitterid = null;
+				$twitterid = "null";
 			}
 			$put = $this->dynamodb->update_item(array(
 			    'TableName' => get_cfg_var('aws.param2'), 
