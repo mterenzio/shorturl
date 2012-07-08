@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->library('session');
 		$this->load->model('auth_model');
-		$data['logon'] = $auth->getLogon();	
+		$data['logon'] = $this->auth_model->getLogon();	
 		$this->load->view('welcome_message', $data);
 	}
 }

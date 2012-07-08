@@ -9,13 +9,13 @@ class Create extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div class="formerror">', '</div>');
 		$this->form_validation->set_rules('longurl', 'Longurl', 'trim|required|callback__valid_longurl|callback_nocaptcha');
 		$this->load->model('auth_model');
-		$data['logon'] = $auth->getLogon();		
+		$data['logon'] = $this->auth_model->getLogon();		
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('welcome_message', $data);
 		} else {
 		//process form
 			$this->load->model('shorturl_model');
-			if ($surl = $shorturl->createShortUrl($this->input->post('longurl'))) {
+			if ($surl = $this->shorturl_model->createShortUrl($this->input->post('longurl'))) {
 				$data['shorturl'] = $surl;			
 		    	$this->load->view('welcome_message', $data);
 			} else {
