@@ -42,12 +42,12 @@ class Welcome extends CI_Controller {
 		         echo "Something unknown is wrong with our connection with twitter. Please try back later.";
 		         exit;
 		    }    
-		    $logon = "Welcome, ".$twitterInfo->name."<br/>";
+		    $logon = "Signed in as , ".$twitterInfo->name."<br/>";
 		} else {
 			try {
 				$url = $twitterObj->getAuthorizeUrl();
 				//header("Location: ".$url);
-				$logon = "<a href=\"".$url."\">Sign in</a><br/>";
+				$logon = "<a href=\"".$url."\">Sign in with your Twitter account</a><br/>";
 	    	 }catch(Exception $e){
 	         	echo $e;
 	         	exit;
