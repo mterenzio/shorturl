@@ -162,7 +162,7 @@ class Shorturl_model extends CI_Model {
 		        'user' => array(
 		            'ComparisonOperator' => AmazonDynamoDB::CONDITION_EQUAL,
 		            'AttributeValueList' => array(
-		                array( AmazonDynamoDB::TYPE_STRING => $twitterid )
+		                array( AmazonDynamoDB::TYPE_STRING => "$twitterid" )
 		            )
 		        ),
 		    )
