@@ -31,9 +31,9 @@ class Welcome extends CI_Controller {
 		if ($this->session->userdata('twitter_id')) {
 				$twitterObj->setToken($this->session->userdata('oauth_token'), $this->session->userdata('oauth_token_secret'));	
 		    try {
-
 		    	$twitterInfo = $twitterObj->get_accountVerify_credentials();
 		    	$twitterInfo->response;
+				$logon = "Signed in as , ".$twitterInfo->name."<br/>";
 		    }catch(EpiTwitterServiceUnavailableException $e){
 		         echo 'Twitter is unavaiable. That stinks but there is nothing we can do.';
 		         exit;
@@ -41,8 +41,7 @@ class Welcome extends CI_Controller {
 				 echo $e;
 		         echo "Something unknown is wrong with our connection with twitter. Please try back later.";
 		         exit;
-		    }    
-		    $logon = "Signed in as , ".$twitterInfo->name."<br/>";
+		    }    		    
 		} else {
 			try {
 				$url = $twitterObj->getAuthorizeUrl();
