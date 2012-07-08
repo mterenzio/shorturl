@@ -23,13 +23,29 @@ class Auth_model extends CI_Model {
 		}
     }
 
+    public function signgon() {
+		if ($this->session->userdata('twitter_id')) {
+			return true;
+		} else {
+			return false;
+		}
+    }
+
+    public function signoff() {
+		if ($this->session->userdata('twitter_id')) {
+			return true;
+		} else {
+			return false;
+		}
+    }
+
     public function getLogon() {
 		if ($this->checkAuth()) {
 			$this->twitterObj->setToken($this->session->userdata('oauth_token'), $this->session->userdata('oauth_token_secret'));	
 	    try {
 	    	$this->twitterInfo = $this->twitterObj->get_accountVerify_credentials();
 	    	$this->twitterInfo->response;
-			$logon = "Signed in as , ".$this->twitterInfo->name."<br/>";
+			$logon = "Signed in as , ".$this->twitterInfo->name." | <a href=\"/signoff\">signoff</a><br/>";
 	    }catch(EpiTwitterServiceUnavailableException $e){
 	         echo 'Twitter is unavaiable. That stinks but there is nothing we can do.';
 	         exit;
