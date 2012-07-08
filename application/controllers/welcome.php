@@ -29,7 +29,6 @@ class Welcome extends CI_Controller {
 		$toauthksecret = get_cfg_var('aws.param5');
 		$twitterObj = new EpiTwitter($toauthkey, $toauthksecret);	
 		if ($this->session->userdata('twitter_id')) {
-				echo $this->session->userdata('oauth_token');
 				echo $this->session->userdata('oauth_secret');	
 		    try {
 		    	$twitterObj->setToken($this->session->userdata('oauth_token'), $this->session->userdata('oauth_secret'));
