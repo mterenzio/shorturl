@@ -43,6 +43,7 @@ $route['createbookmarklet'] = 'createbookmarklet';
 $route['create'] = 'create';
 $route['callback'] = 'callback';
 $route['signoff'] = 'signoff';
+$route['metrics'] = 'metrics';
 $route['(:any)'] = 'redirect';
 $route['404_override'] = '';
 

@@ -21,7 +21,6 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		$this->load->library('session');
 		$this->load->model('auth_model');
 		$data['logon'] = $this->auth_model->getLogon();	
 		$this->load->view('welcome_message', $data);
