@@ -16,6 +16,10 @@ class Create extends CI_Controller {
 			$shorturl = new Shorturl_model();
 			if ($surl = $shorturl->createShortUrl($this->input->post('longurl'))) {
 				$data['shorturl'] = $surl;
+				$this->load->model('auth_model');
+				$auth = new Auth_model();
+				$logon = $auth->getLogon();
+				$data['logon'] = $logon;				
 		    	$this->load->view('welcome_message', $data);
 			} else {
 		    	echo 'error creating short url. . .try again';
