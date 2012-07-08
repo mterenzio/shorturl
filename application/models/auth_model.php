@@ -2,7 +2,7 @@
 
 class Auth_model extends CI_Model {
     
-	private var $twitterObject;
+	private $twitterObject;
 	
     public function __construct() {
 		$this->load->library('session');
