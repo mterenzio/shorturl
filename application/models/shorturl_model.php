@@ -154,6 +154,30 @@ class Shorturl_model extends CI_Model {
 		}    
     }
 
+    public function getAllByUser($twitterid) {      
+		$response = $dynamodb->scan(array(
+		    'TableName'       => get_cfg_var('aws.param2'),
+		    'AttributesToGet' => array('longurl'),
+		    'ScanFilter'      => array(
+		        'user' => array(
+		            'ComparisonOperator' => AmazonDynamoDB::CONDITION_EQUAL,
+		            'AttributeValueList' => array(
+		                array( AmazonDynamoDB::TYPE_STRING => $twitterid )
+		            )
+		        ),
+		    )
+		));
+		if ($response->isOK())
+		{
+			echo print_r($response);
+		   // return (string) $response->body->Item->longurl->{AmazonDynamoDB::TYPE_STRING};
+		}
+		else
+		{
+		    return false;
+		}    
+    }
+
     private function getLastID() {      
 		$response = $this->dynamodb->get_item(array(
 		    'TableName' => 'counters',

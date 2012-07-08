@@ -7,6 +7,9 @@ class Metrics extends CI_Controller {
 		$this->load->model('auth_model');
 		if ($this->auth_model->checkAuth()) {
 			echo "latest stats";
+			$this->load->model('shorturl_model');
+			$this->shorturl_model->getAllByUser($this->session->userdata('twitter_id'));
+
 			
 		} else {
 			echo "must be signed in to see metrics";
