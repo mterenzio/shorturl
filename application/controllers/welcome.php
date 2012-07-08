@@ -22,37 +22,8 @@ class Welcome extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		$this->load->library('session');
-		require_once(APPPATH.'classes/epicenter/EpiCurl.php');
-		require_once(APPPATH.'classes/epicenter/EpiOAuth.php');
-		require_once(APPPATH.'classes/epicenter/EpiTwitter.php');
-		$toauthkey = get_cfg_var('aws.param4');
-		$toauthksecret = get_cfg_var('aws.param5');
-		$twitterObj = new EpiTwitter($toauthkey, $toauthksecret);	
-		if ($this->session->userdata('twitter_id')) {
-				$twitterObj->setToken($this->session->userdata('oauth_token'), $this->session->userdata('oauth_token_secret'));	
-		    try {
-		    	$twitterInfo = $twitterObj->get_accountVerify_credentials();
-		    	$twitterInfo->response;
-				$logon = "Signed in as , ".$twitterInfo->name."<br/>";
-		    }catch(EpiTwitterServiceUnavailableException $e){
-		         echo 'Twitter is unavaiable. That stinks but there is nothing we can do.';
-		         exit;
-		     }catch(Exception $e){
-				 echo $e;
-		         echo "Something unknown is wrong with our connection with twitter. Please try back later.";
-		         exit;
-		    }    		    
-		} else {
-			try {
-				$url = $twitterObj->getAuthorizeUrl();
-				//header("Location: ".$url);
-				$logon = "<a href=\"".$url."\">Sign in with your Twitter account</a><br/>";
-	    	 }catch(Exception $e){
-	         	echo $e;
-	         	exit;
-	    	}  
-		}
-		$data['logon'] = $logon;
+		$this->load->model('auth_model');
+		$data['logon'] = $auth->getLogon();	
 		$this->load->view('welcome_message', $data);
 	}
 }

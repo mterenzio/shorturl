@@ -8,18 +8,15 @@ class Create extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="formerror">', '</div>');
 		$this->form_validation->set_rules('longurl', 'Longurl', 'trim|required|callback__valid_longurl|callback_nocaptcha');
+		$this->load->model('auth_model');
+		$data['logon'] = $auth->getLogon();		
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('welcome_message');
+			$this->load->view('welcome_message', $data);
 		} else {
 		//process form
 			$this->load->model('shorturl_model');
-			$shorturl = new Shorturl_model();
 			if ($surl = $shorturl->createShortUrl($this->input->post('longurl'))) {
-				$data['shorturl'] = $surl;
-				$this->load->model('auth_model');
-				$auth = new Auth_model();
-				$logon = $auth->getLogon();
-				$data['logon'] = $logon;				
+				$data['shorturl'] = $surl;			
 		    	$this->load->view('welcome_message', $data);
 			} else {
 		    	echo 'error creating short url. . .try again';
