@@ -170,7 +170,7 @@ class Shorturl_model extends CI_Model {
 		if ($response->isOK())
 		{
 			//echo print_r($response);
-		   return $response->body;
+		   return $response->body->Items;
 		}
 		else
 		{
