@@ -10,7 +10,7 @@ class Metrics extends CI_Controller {
 			$this->load->model('shorturl_model');
 			$items = $this->shorturl_model->getAllByUser($this->session->userdata('twitter_id'));
 			foreach ($items as $item)	{
-				echo print_r($item->longurl)."<br />";
+				echo $item->longurl->S."<br />";
 			}		
 		} else {
 			echo "must be signed in to see metrics";
