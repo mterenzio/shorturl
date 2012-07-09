@@ -11,8 +11,8 @@ class Metrics extends CI_Controller {
 			$items = $this->shorturl_model->getAllByUser($this->session->userdata('twitter_id'));
 			foreach ($items as $item)	{
 				//echo print_r($item);
-				if (isset($item->count->S)) {
-					echo $item->count->S."<br />";
+				if (isset($item->count->N)) {
+					echo $item->count->N."<br />";
 				} else {
 					echo "none<br />";
 				}
