@@ -169,7 +169,7 @@ class Shorturl_model extends CI_Model {
 		));
 		if ($response->isOK())
 		{
-		   return (string) $response->body->Items;
+		   return (string) $response->body->Items->{AmazonDynamoDB::TYPE_STRING};
 		}
 		else
 		{
